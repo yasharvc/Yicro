@@ -1,0 +1,30 @@
+@keyframes fadeIn {
+    0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes fadeOut {
+    0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.FadeIn {
+    opacity: 1;
+    animation: fadeIn 1s linear;
+    animation-iteration-count: 1;
+}
+.FadeOut {
+    opacity: 0;
+    animation: fadeOut 1s linear;
+    animation-iteration-count: 1;
+}
+
+.ycode{
+	display: none;
+}
