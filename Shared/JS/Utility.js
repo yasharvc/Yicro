@@ -59,6 +59,6 @@ function clearJS(){
 }
 function getFunctionList(exp){
     var regExp = /function\s*[\w]*\(([^)]*)\)/;
-    var matches = regExp.exec("I expect five hundred dollars ($500).");
-    console.log(matches[1]);
+    var matches = regExp.exec(exp);
+    console.log(matches);
 }
