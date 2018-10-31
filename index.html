@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Test</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <div class="ycode" id="__topcss__"></div>
@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<!-- Top navbar -->
+    <!-- Top navbar -->
     <div class="w3-container w3-black" style="top: 0px;position: fixed; width: 100%;z-index:4" id="topbar">
         <div class="w3-right">
             <button class="w3-bar-item w3-btn w3-hover-none w3-hover-text-light-grey" onclick="__openRightMenu();" id="RightMenuButton"><i
@@ -41,12 +41,15 @@
         id="rightOverlay"></div>
     <div class="w3-overlay w3-animate-opacity" onclick="__closeLeftMenu()" style="cursor:pointer" title="close side menu"
         id="leftOverlay"></div>
-<!-- /Top navbar/ -->
+    <!-- /Top navbar/ -->
 
     <div class="w3-container" id="__body__" style="padding:0;margin:0;width:100%;margin-top: 40px;">
         <h2>تست فونت</h2>
-        <button class="w3-btn w3-green" onclick="testJSInject();showInfoSnack('بعد از فراخوانی')"><i class="fa faa-falling animated fa-user"></i> تست
+        <button class="w3-btn w3-green" onclick="testJSInject();showInfoSnack('بعد از فراخوانی')"><i class="fa faa-falling animated fa-user"></i>
+            تست
             تستی</button>
+        <button class="w3-btn w3-green" onclick="showModal()"><i class="fa faa-falling animated fa-window"></i>
+            Show modal</button>
         <p>The w3-panel class can be used to display all sorts of notes:</p>
 
         <div class="w3-panel w3-yellow">
@@ -89,6 +92,7 @@
         </div>
     </div>
     @Snackbar
+    @Modal
     <script>
         BlockEntirePage();
         move();

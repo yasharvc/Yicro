@@ -17,9 +17,10 @@ SharedCSS fa_animations
 LocalJS Shared\JS\ElementBlocker,Shared\JS\Utility,Shared\JS\Menu
 LocalJS Shared\JS\YQuery
 LocalJS Shared\JS\Snackbar
-
+LocalJS Shared\JS\Modal
 
 AppendLocalHTMLToRegion Index,Snackbar,Shared\HTML\Snackbar
+AppendLocalHTMLToRegion Index,Modal,Shared\HTML\Modal
 
 Html Index,Index
 

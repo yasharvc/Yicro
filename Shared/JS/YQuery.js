@@ -49,3 +49,7 @@ Object.prototype.removeClass = function (classList) {
         } while (arr.indexOf(name) !== -1);
     });
 };
+
+Object.prototype.show = function(){
+    this.style.display = 'block';
+}
