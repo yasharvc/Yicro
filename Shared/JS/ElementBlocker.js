@@ -18,6 +18,7 @@ function Blocker(blockedElement) {
 
         this.blockedElement.appendChild(this.theBlocker);
         theBlocker = this.theBlocker;
+        theBlocker.style.height = (window.outerHeight + 100) + 'px';
     };
 
     this.hideLoader = function () {
@@ -34,14 +35,13 @@ function Blocker(blockedElement) {
             res += "background-color:rgba(0,0,0,0.8);";
         else if (type === BlockWithoutOpacity)
             res += "background-color:black;";
-        res += "border:none;margin:0;padding:0;position:absolute;width:100%;display: table;height:100vh;top:0;left:0;";
+        res += "border:none;margin:0;padding:0;position:fixed;width:100%;display: table;height:100%;min-height:100%;top:0;left:0;";
         return res;
     };
 
     window.addEventListener('resize', function () {
         if (theBlocker != null) {
-            theBlocker.style.height = window.innerHeight;
-            this.console.log('sdasd');
+            theBlocker.style.height = (window.outerHeight + 0) + 'px';
         }
     });
 }
