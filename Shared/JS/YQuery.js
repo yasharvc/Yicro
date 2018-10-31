@@ -16,17 +16,19 @@ Object.prototype.html = function (data) {
 
 Object.prototype.addClass = function (classList) {
     classList = classList.replace(/,/g, ' ').split(' ');
+    if (typeof classList === 'string')
+        classList = [classList];
+    var thisObject = this;
     forEach(classList, function (name) {
-        debugger;
-        if (isNull(this.className)) {
-            this.className = name;
+        if (isNull(thisObject.className)) {
+            thisObject.className = name;
         } else {
-            var arr = this.className.split(" ");
+            var arr = thisObject.className.split(" ");
             if (arr.indexOf(name) == -1) {
-                if (isNull(this.className))
-                    this.className = name;
+                if (isNull(thisObject.className))
+                    thisObject.className = name;
                 else
-                    this.className += " " + name;
+                    thisObject.className += " " + name;
             }
         }
     });
@@ -36,12 +38,14 @@ Object.prototype.removeClass = function (classList) {
     if (isNull(this.className))
         return;
     classList = classList.replace(/,/g, ' ');
+    if (typeof classList === 'string')
+        classList = [classList];
+    var thisObject = this;
     forEach(classList, function (name) {
-        debugger;
         var arr = [];
         do {
-            arr = this.className.split(" ");
-            this.className = this.className.replace(name, '');
+            arr = thisObject.className.split(" ");
+            thisObject.className = thisObject.className.replace(name, '');
         } while (arr.indexOf(name) !== -1);
     });
 };

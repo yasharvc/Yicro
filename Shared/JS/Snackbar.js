@@ -1,5 +1,4 @@
 function showErrorSnack(msg) {
-    debugger;
     $('#__errorSnackMsg__').html(msg);
     $('#__errorSnack__').addClass("show");
     setTimeout(function () {
