@@ -3,57 +3,58 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-  box-sizing: border-box;
-}
-
-#myInput {
-	direction:rtl;
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 0px;
-}
-
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
-
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
-.search-board{
-	height:300px;
-    max-height:300px;
-    overflow:scroll;
-}
-</style>
+    
 </head>
 
 <body>
+        <style>
 
-    <h2>My Phonebook</h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                #SelectInput {
+            direction:rtl;
+          background-image: url('/css/searchicon.png');
+          background-position: 10px 12px;
+          background-repeat: no-repeat;
+          width: 100%;
+          font-size: 16px;
+          padding: 12px 20px 12px 40px;
+          border: 1px solid #ddd;
+          margin-bottom: 0px;
+          box-sizing: border-box;
+        }
+        
+        #SelectList {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          text-align: right;
+          box-sizing: border-box;
+        }
+        
+        #SelectList li a {
+          border: 1px solid #ddd;
+          margin-top: -1px; /* Prevent double borders */
+          background-color: #f6f6f6;
+          padding: 12px;
+          text-decoration: none;
+          font-size: 18px;
+          color: black;
+          display: block;
+          box-sizing: border-box;
+        }
+        
+        #SelectList li a:hover:not(.header) {
+          background-color: #eee;
+        }
+        .search-board{
+            height:300px;
+            max-height:300px;
+            overflow:scroll;
+            box-sizing: border-box;
+        }
+        </style>
+    <input type="text" id="SelectInput" onkeyup="SelectSearch()" placeholder="Search for names.." title="Type in a name">
     <div class="search-board">
-        <ul id="myUL">
+        <ul id="SelectList">
             <li><a href="#">Adele</a></li>
             <li><a href="#">Agnes</a></li>
 
@@ -104,7 +105,7 @@
     </div>
     <div id="SearchCount"></div>
     <script>
-        function myFunction() {
+        function SelectSearch() {
             var SearchCount = document.getElementById('SearchCount');
             var nothingFound = document.getElementById('notFound');
 
@@ -112,9 +113,9 @@
 
             nothingFound.style.display = 'none';
 
-            input = document.getElementById("myInput");
+            input = document.getElementById("SelectInput");
             filter = input.value.toUpperCase();
-            ul = document.getElementById("myUL");
+            ul = document.getElementById("SelectList");
             li = ul.getElementsByTagName("li");
             var cnt = 0;
             for (i = 0; i < li.length; i++) {

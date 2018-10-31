@@ -52,4 +52,4 @@ Object.prototype.removeClass = function (classList) {
 
 Object.prototype.show = function(){
     this.style.display = 'block';
-}
+};
