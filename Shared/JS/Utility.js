@@ -58,7 +58,10 @@ function clearJS(){
     scripts = [];
 }
 function getFunctionList(exp){
-    var regExp = /function\s*[\w]*\(([^)]*)\)/;
-    var matches = regExp.exec(exp);
-    console.log(matches);
+    var matches = exp.match(/function\s*[\w]*\(/gi);
+    var arr = [];
+    for(var i = 0 ; i < matches.length ; i++){
+        arr.push(matches[i].replace('function','').replace('(','').trim());
+    }
+    console.log(arr);
 }
