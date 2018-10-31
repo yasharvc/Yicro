@@ -24,7 +24,6 @@ function Blocker(blockedElement) {
     var prepareStyle = function(type){
         type = isNull(type) ? WithoutOpacity : type;
         var res = "";
-        debugger;
         if(type === WithOpacity)
             res += "background-color:rgba(0,0,0,0.8);";
         else if(type === WithoutOpacity)
