@@ -35,7 +35,7 @@ function Blocker(blockedElement) {
             res += "background-color:rgba(0,0,0,0.8);";
         else if (type === BlockWithoutOpacity)
             res += "background-color:black;";
-        res += "border:none;margin:0;padding:0;position:fixed;width:100%;display: table;height:100%;min-height:100%;top:0;left:0;";
+        res += "z-index:99999;border:none;margin:0;padding:0;position:fixed;width:100%;display: table;height:100%;min-height:100%;top:0;left:0;";
         return res;
     };
 
@@ -49,13 +49,6 @@ function Blocker(blockedElement) {
 
 
 var bodyBlocker;
-
-function getElement(expToSearch) {
-    return document.getElementById(expToSearch) ||
-        document.getElementsByClassName(expToSearch)[0] ||
-        document.getElementsByTagName(expToSearch)[0] ||
-        document.getElementsByName(expToSearch)[0];
-}
 
 function BlockEntirePage() {
     if (isNull(bodyBlocker))
@@ -86,6 +79,7 @@ function move() {
     function frame() {
         if (width >= 100) {
             clearInterval(id);
+            setTimeout(function(){UnblockEntirePage();},200);
         } else {
             width++;
             changeProgress(width);

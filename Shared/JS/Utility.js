@@ -1,6 +1,15 @@
 var scripts = [];
 var csses = [];
 
+function getElement(expToSearch) {
+    if (expToSearch.indexOf('#') >= 0)
+        expToSearch = expToSearch.slice(1);
+    return document.getElementById(expToSearch) ||
+        document.getElementsByClassName(expToSearch)[0] ||
+        document.getElementsByTagName(expToSearch)[0] ||
+        document.getElementsByName(expToSearch)[0];
+}
+
 function isNull(obj) {
     return obj === null || typeof obj === 'undefined';
 }
@@ -50,7 +59,10 @@ function addJSToBottom(JSCode) {
     fileref.innerHTML = JSCode;
     if (!isNull(fileref)) {
         getBottomScript().appendChild(fileref);
-        scripts.push({file:fileref,isTop:false});
+        scripts.push({
+            file: fileref,
+            isTop: false
+        });
     }
 }
 
@@ -78,7 +90,7 @@ function clearBody() {
 function clearJS() {
     for (var i = 0; i < scripts.length; i++) {
         deleteFunction(getFunctionList(scripts[i].file.innerHTML));
-        if(scripts[i].isTop)
+        if (scripts[i].isTop)
             getTopScript().removeChild(scripts[i].file);
         else
             getBottomScript().removeChild(scripts[i].file);
@@ -86,7 +98,7 @@ function clearJS() {
     scripts = [];
 }
 
-function clearCSS(){
+function clearCSS() {
     for (var i = 0; i < csses.length; i++) {
         getTopCSS().removeChild(csses[i]);
     }
