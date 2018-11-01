@@ -1,23 +1,23 @@
 /*
-*   This content is licensed according to the W3C Software License at
-*   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
-*
-*   File:   Treeitem.js
-*
-*   Desc:   Treeitem widget that implements ARIA Authoring Practices
-*           for a tree being used as a file viewer
-*/
+ *   This content is licensed according to the W3C Software License at
+ *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
+ *
+ *   File:   Treeitem.js
+ *
+ *   Desc:   Treeitem widget that implements ARIA Authoring Practices
+ *           for a tree being used as a file viewer
+ */
 
 /*
-*   @constructor
-*
-*   @desc
-*       Treeitem object for representing the state and user interactions for a
-*       treeItem widget
-*
-*   @param node
-*       An element with the role=tree attribute
-*/
+ *   @constructor
+ *
+ *   @desc
+ *       Treeitem object for representing the state and user interactions for a
+ *       treeItem widget
+ *
+ *   @param node
+ *       An element with the role=tree attribute
+ */
 
 var Treeitem = function (node, treeObj, group) {
 
@@ -108,16 +108,15 @@ Treeitem.prototype.handleKeydown = function (event) {
     char = event.key,
     clickEvent;
 
-  function isPrintableCharacter (str) {
+  function isPrintableCharacter(str) {
     return str.length === 1 && str.match(/\S/);
   }
 
-  function printableCharacter (item) {
+  function printableCharacter(item) {
     if (char == '*') {
       item.tree.expandAllSiblingItems(item);
       flag = true;
-    }
-    else {
+    } else {
       if (isPrintableCharacter(char)) {
         item.tree.setFocusByFirstCharacter(item, char);
         flag = true;
@@ -133,8 +132,7 @@ Treeitem.prototype.handleKeydown = function (event) {
     if (isPrintableCharacter(char)) {
       printableCharacter(this);
     }
-  }
-  else {
+  } else {
     switch (event.keyCode) {
       case this.keyCode.SPACE:
       case this.keyCode.RETURN:
@@ -146,8 +144,7 @@ Treeitem.prototype.handleKeydown = function (event) {
             'bubbles': true,
             'cancelable': true
           });
-        }
-        catch (err) {
+        } catch (err) {
           if (document.createEvent) {
             // DOM Level 3 for IE 9+
             clickEvent = document.createEvent('MouseEvents');
@@ -172,8 +169,7 @@ Treeitem.prototype.handleKeydown = function (event) {
         if (this.isExpandable) {
           if (this.isExpanded()) {
             this.tree.setFocusToNextItem(this);
-          }
-          else {
+          } else {
             this.tree.expandTreeitem(this);
           }
         }
@@ -184,8 +180,7 @@ Treeitem.prototype.handleKeydown = function (event) {
         if (this.isExpandable && this.isExpanded()) {
           this.tree.collapseTreeitem(this);
           flag = true;
-        }
-        else {
+        } else {
           if (this.inGroup) {
             this.tree.setFocusToParentItem(this);
             flag = true;
@@ -222,13 +217,11 @@ Treeitem.prototype.handleClick = function (event) {
   if (this.isExpandable) {
     if (this.isExpanded()) {
       this.tree.collapseTreeitem(this);
-    }
-    else {
+    } else {
       this.tree.expandTreeitem(this);
     }
     event.stopPropagation();
-  }
-  else {
+  } else {
     this.tree.setFocusToItem(this);
   }
 };
