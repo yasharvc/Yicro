@@ -16,7 +16,6 @@ var TreeView = function (id) {
 
     baseTree.init();
     var clickListener = function (e) {
-        debugger;
         var nodeId = e.target.getAttribute('aria-id');
         var treeId = nodesData[nodeId].treeId;
         if (treeId == id) {
@@ -109,6 +108,9 @@ function testTree() {
         path: '<1>'
     });
     x.onClick = function (data) {
-        console.info(data);
+        $('last_action').value = data.id;
+        if (data.isFolder) {
+            $('TreeSelectedItem').html(data.text);
+        }
     };
 }

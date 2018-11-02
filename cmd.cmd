@@ -21,7 +21,7 @@ LocalJS Shared\JS\Snackbar
 LocalJS Shared\JS\Modal
 LocalJS Components\TreeView\tree
 LocalJS Components\TreeView\treeitem
-LocalJS Components\TreeView\treeitemclick
+//LocalJS Components\TreeView\treeitemclick
 LocalJS Components\TreeView\YTree
 
 AppendLocalHTMLToRegion Index,Snackbar,Shared\HTML\Snackbar

@@ -13,18 +13,6 @@
  * @function onload
  * @desc  after page has loaded initialize all treeitems based on the role=treeitem
  */
-
-window.addEventListener('load', function () {
-
-  var trees = document.querySelectorAll('[role="tree"]');
-
-  for (var i = 0; i < trees.length; i++) {
-    var t = new Tree(trees[i]);
-    t.init();
-  }
-
-});
-
 /*
 *   @constructor
 *
