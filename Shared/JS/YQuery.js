@@ -13,6 +13,10 @@ Object.prototype.html = function (data) {
     else
         this.innerHTML = data;
 };
+Object.prototype.append = function (data) {
+    debugger;
+    this.innerHTML += data;
+};
 
 Object.prototype.addClass = function (classList) {
     classList = classList.replace(/,/g, ' ').split(' ');
