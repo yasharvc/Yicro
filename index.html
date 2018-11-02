@@ -48,7 +48,7 @@
         <button class="w3-btn w3-green" onclick="testJSInject();showInfoSnack('بعد از فراخوانی')"><i class="fa faa-falling animated fa-user"></i>
             تست
             تستی</button>
-        <button class="w3-btn w3-green" onclick="showModal()"><i class="fa faa-falling animated fa-window"></i>
+        <button class="w3-btn w3-green" onclick="showModal('TREE__MODAL__')"><i class="fa faa-falling animated fa-window"></i>
             Show modal</button>
         <p>The w3-panel class can be used to display all sorts of notes:</p>
 
@@ -93,6 +93,7 @@
     </div>
     @Snackbar
     @Modal
+    @TreeView
     <script>
         BlockEntirePage();
         move();

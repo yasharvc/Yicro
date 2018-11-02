@@ -1,0 +1,212 @@
+<div id="TREE__MODAL__" class="__MODAL__">
+    <div class="__MODAL_CONTENT__ w3-white">
+        <div class="w3-container" style="width:100%;margin: 0;padding: 0;" id="treeViewModal">
+            <div id="treeViewTitle">درخت</div>
+            <h3 style="text-align:center;color:yellow;background-color:blue;"><span id="TreeSelectedItem">انتخاب نشده</span></h3>
+            <div class="w3-row">
+                <div style="text-align:center;">
+                    <button type="button" onclick="select2Select()" class="w3-bar-item w3-btn w3-teal" style="width:30%;"><i
+                            class="fa fa-check fa-2x"></i>
+                    </button>
+                    <button type="button" onclick="select2Cancel()" class="w3-bar-item w3-btn w3-red" style="width:35%;"><i
+                            class="fa fa-times fa-2x"></i>
+                    </button>
+                    <button type="button" onclick="select2ClearSelection()" class="w3-bar-item w3-btn w3-blue" style="width:30%;"><i
+                            class="fa fa-trash fa-2x"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="w3-row">
+                <div class="TreeViewHolder">
+                    <ul role="tree" aria-labelledby="tree_label">
+                        <li role="treeitem" aria-expanded="false">
+                            <span>
+                                Projects
+                            </span>
+                            <ul role="group">
+                                <li role="treeitem" class="doc">
+                                    project-1.docx
+                                </li>
+                                <li role="treeitem" class="doc">
+                                    project-2.docx
+                                </li>
+                                <li role="treeitem" aria-expanded="false">
+                                    <span>
+                                        Project 3
+                                    </span>
+                                    <ul role="group">
+                                        <li role="treeitem" class="doc">
+                                            project-3A.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            project-3B.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            project-3C.docx
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li role="treeitem" class="doc">
+                                    project-4.docx
+                                </li>
+                                <li role="treeitem" aria-expanded="false">
+                                    <span>
+                                        Project 5
+                                    </span>
+                                    <ul role="group">
+                                        <li role="treeitem" class="doc">
+                                            project-5A.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            project-5B.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            project-5C.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            project-5D.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            project-5E.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            project-5F.docx
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="treeitem" aria-expanded="false">
+                            <span>
+                                Reports
+                            </span>
+                            <ul role="group">
+                                <li role="treeitem" aria-expanded="false">
+                                    <span>
+                                        report-1
+                                    </span>
+                                    <ul role="group">
+                                        <li role="treeitem" class="doc">
+                                            report-1A.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            report-1B.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            report-1C.docx
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li role="treeitem" aria-expanded="false">
+                                    <span>
+                                        report-2
+                                    </span>
+                                    <ul role="group">
+                                        <li role="treeitem" class="doc">
+                                            report-2A.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            report-2B.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            report-2C.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            report-2D.docx
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li role="treeitem" aria-expanded="false">
+                                    <span>
+                                        report-3
+                                    </span>
+                                    <ul role="group">
+                                        <li role="treeitem" class="doc">
+                                            report-3A.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            report-3B.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            report-3C.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            report-3D.docx
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li role="treeitem" aria-expanded="false">
+                            <span>
+                                Letters
+                            </span>
+                            <ul role="group">
+                                <li role="treeitem" aria-expanded="false">
+                                    <span>
+                                        letter-1
+                                    </span>
+                                    <ul>
+                                        <li role="treeitem" class="doc">
+                                            letter-1A.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            letter-1B.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            letter-1C.docx
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li role="treeitem" aria-expanded="false">
+                                    <span>
+                                        letter-2
+                                    </span>
+                                    <ul role="group">
+                                        <li role="treeitem" class="doc">
+                                            letter-2A.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            letter-2B.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            letter-2C.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            letter-2D.docx
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li role="treeitem" aria-expanded="false">
+                                    <span>
+                                        letter-3
+                                    </span>
+                                    <ul role="group">
+                                        <li role="treeitem" class="doc">
+                                            letter-3A.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            letter-3B.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            letter-3C.docx
+                                        </li>
+                                        <li role="treeitem" class="doc">
+                                            letter-3D.docx
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <p>
+                    <label>
+                        File or Folder Selected:
+                        <input id="last_action" type="text" size="15" readonly="">
+                    </label>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

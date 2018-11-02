@@ -53,3 +53,10 @@ ul[role="tree"] {
   background-color: #DDDDDD;
 }
 
+.TreeViewHolder{
+  height: 300px;
+  max-height: 300px;
+  min-height: 300px;
+  overflow-y: scroll;
+  border: gray 1px solid;
+}

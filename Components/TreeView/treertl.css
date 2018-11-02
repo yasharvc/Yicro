@@ -1,0 +1,82 @@
+ul[role="tree"] {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	/* font-size: 120%; */
+}
+
+[role="treeitem"].doc:after {
+	/* content: url(images/file.png); */
+	content: '\f177';
+	font-family: FontAwesome;
+	margin-right: 15px;
+	color: green;
+}
+
+[role="treeitem"][aria-expanded="false"]>ul {
+	display: none;
+	padding-right: 25px;
+}
+
+[role="treeitem"][aria-expanded="true"]>ul {
+	display: block;
+	padding-right: 25px;
+}
+
+/* [role="treeitem"][aria-expanded="false"]>span:before {
+	content: "\f060";
+	font-family: FontAwesome;
+} */
+[role="treeitem"][aria-expanded="false"]>span:after {
+	content: "\f067";
+	font-family: FontAwesome;
+	color: blue;
+}
+
+/* 
+[role="treeitem"][aria-expanded="true"] > span:before {
+  content: "\f175";
+  font-family: FontAwesome;
+} */
+[role="treeitem"][aria-expanded="true"]>span::after {
+	content: "\f068";
+	font-family: FontAwesome;
+	color: red;
+	transform: rotate(45deg);
+}
+
+[role="treeitem"],
+[role="treeitem"] span {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 2px transparent solid;
+	padding: 0.025em;
+	display: block;
+}
+
+/* disable default keyboard focus styling for treeitems
+   Keyboard focus is styled with the following CSS */
+[role="treeitem"]:focus {
+	outline: 0;
+}
+
+
+[role="treeitem"].focus,
+[role="treeitem"] span.focus {
+	border-color: black;
+	background-color: #EEEEEE;
+}
+
+[role="treeitem"].hover,
+[role="treeitem"] span:hover {
+	background-color: #DDDDDD;
+}
+
+.TreeViewHolder {
+	height: 300px;
+	max-height: 300px;
+	min-height: 300px;
+	overflow-y: scroll;
+	border: gray 1px solid;
+}

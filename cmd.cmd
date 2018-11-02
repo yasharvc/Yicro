@@ -12,15 +12,20 @@ LocalCSSToEnd Shared\CSS\endStyle
 
 LocalCSS Shared\CSS\fontawesome,Shared\CSS\w3,Shared\CSS\w3_rtl,Shared\CSS\style
 LocalCSS Shared\CSS\Snackbar
+LocalCSS Components\TreeView\treertl
 SharedCSS fa_animations
 
 LocalJS Shared\JS\ElementBlocker,Shared\JS\Utility,Shared\JS\Menu
 LocalJS Shared\JS\YQuery
 LocalJS Shared\JS\Snackbar
 LocalJS Shared\JS\Modal
+LocalJS Components\TreeView\tree
+LocalJS Components\TreeView\treeitem
+LocalJS Components\TreeView\treeitemclick
 
 AppendLocalHTMLToRegion Index,Snackbar,Shared\HTML\Snackbar
 AppendLocalHTMLToRegion Index,Modal,Shared\HTML\Modal
+AppendLocalHTMLToRegion Index,Modal,Components\TreeView\tree
 
 Html Index,Index
 
