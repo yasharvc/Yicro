@@ -14,7 +14,6 @@ Object.prototype.html = function (data) {
         this.innerHTML = data;
 };
 Object.prototype.append = function (data) {
-    debugger;
     this.innerHTML += data;
 };
 
@@ -56,4 +55,7 @@ Object.prototype.removeClass = function (classList) {
 
 Object.prototype.show = function(){
     this.style.display = 'block';
+};
+Object.prototype.hide = function(){
+    this.style.display = 'none';
 };

@@ -102,14 +102,26 @@ function testTree() {
         path: '<1>'
     });
     x.addNode({
-        id: 2,
+        id: 3,
         text: 'متر',
         isFolder: false,
         path: '<1>'
     });
+    x.addNode({
+        id: 4,
+        text: 'سانتی متر',
+        isFolder: false,
+        path: '<1>'
+    });
+    x.addNode({
+        id: 5,
+        text: 'تستی',
+        isFolder: false,
+        path: '<1><2>'
+    });
     x.onClick = function (data) {
         $('last_action').value = data.id;
-        if (data.isFolder) {
+        if (!data.isFolder) {
             $('TreeSelectedItem').html(data.text);
         }
     };
