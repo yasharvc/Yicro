@@ -12,20 +12,15 @@ var TreeView = function (id) {
     var baseTree = new Tree(getBaseTreeNode());
 
     var tempTree = '';
+    var nodesData = [];
 
     baseTree.init();
     var clickListener = function (e) {
         debugger;
-        var treeId = e.detail.treeId || '';
+        var nodeId = e.target.getAttribute('aria-id');
+        var treeId = nodesData[nodeId].treeId;
         if (treeId == id) {
-            console.log(this);
-            console.warn(e);
-            var text = e.detail.text;
-            var nodeId = e.detail.id;
-            this.onClick({
-                id: nodeId,
-                text: text
-            });
+            nodesData[nodeId].TreeView.onClick(nodesData[nodeId]);
         } else {
             console.error('Not mine!');
         }
@@ -46,23 +41,15 @@ var TreeView = function (id) {
         var path = isNull(data.path) ? '' : data.path;
         var nodeId = data.id;
 
-        var eventCaller = "";
-        // "dispatchEvent(new CustomEvent('TreeItemClicked',{detail:{" +
-        //     "id:" + nodeId +
-        //     ",text:'" + text + "'" +
-        //     ",treeId:'" + id + "'" +
-        //     ",isFolder:" + (isFolder ? 'true' : 'false') +
-        //     "}}))";
-
         var node = '';
 
         if (isFolder) {
-            node += '<li role="treeitem" aria-expanded="false">';
+            node += '<li role="treeitem" aria-expanded="false" aria-id="' + nodeId + '">';
             node += '<span>' + text + '</span>';
-            node += '<ul role="group" onclick="' + eventCaller + '" id="' + getNodeId(nodeId) + '"></ul>';
+            node += '<ul role="group" id="' + getNodeId(nodeId) + '" aria-id="' + nodeId + '"></ul>';
             node += '</li>';
         } else {
-            node += '<li role="treeitem" class="doc" onclick="' + eventCaller + '" id="' + getNodeId(nodeId) + '">' + text + '</li>';
+            node += '<li role="treeitem" class="doc" id="' + getNodeId(nodeId) + '" aria-id="' + nodeId + '">' + text + '</li>';
             node += '';
         }
         if (path.length === 0) {
@@ -76,6 +63,9 @@ var TreeView = function (id) {
         var temp = getTree().innerHTML;
         this.clearNodes();
         getTree().innerHTML = temp;
+        data.treeId = id;
+        data.TreeView = this;
+        nodesData[nodeId] = data;
         baseTree = new Tree(getBaseTreeNode());
         baseTree.init();
         setupItemsClick();
@@ -88,23 +78,7 @@ var TreeView = function (id) {
         var treeitems = document.querySelectorAll('[role="treeitem"]');
         for (var i = 0; i < treeitems.length; i++) {
             treeitems[i].addEventListener('click', function (event) {
-                // var treeitem = event.currentTarget;
-                // var label = treeitem.getAttribute('aria-label');
-                // if (!label) {
-                //     label = treeitem.innerHTML;
-                // }
-
-                // document.getElementById('last_action').value = label.trim();
-                debugger;
                 this.dispatchEvent(TreeItemClickEvent);
-                //     new CustomEvent('TreeItemClicked', {
-                //     detail: {
-                //         id: 1,
-                //         text: 'text',
-                //         treeId: id,
-                //         isFolder: false
-                //     }
-                // }));
                 event.stopPropagation();
                 event.preventDefault();
             });
@@ -134,4 +108,7 @@ function testTree() {
         isFolder: false,
         path: '<1>'
     });
+    x.onClick = function (data) {
+        console.info(data);
+    };
 }
