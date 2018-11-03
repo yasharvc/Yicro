@@ -17,12 +17,22 @@ function isNull(obj) {
 function isFunction(name) {
     return typeof window[name] === 'function';
 }
-
+function isVariable(name){
+    return typeof name !== 'undefined' || name !== null;
+}
 function getFunctionList(exp) {
-    var matches = exp.match(/function\s*[\w]*\(/gi);
+    var matches = exp.match(/function\s+\w+\(/gi);
     var arr = [];
     for (var i = 0; i < matches.length; i++) {
         arr.push(matches[i].replace('function', '').replace('(', '').trim());
+    }
+    return arr;
+}
+function getVariableList(exp) {
+    var matches = exp.match(/var\s+\w+/gi);
+    var arr = [];
+    for (var i = 0; i < matches.length; i++) {
+        arr.push(matches[i].replace('var', '').trim());
     }
     return arr;
 }
@@ -31,6 +41,11 @@ function deleteFunction(functionArray) {
     for (var i = 0; i < functionArray.length; i++)
         if (isFunction(functionArray[i]))
             window[functionArray[i]] = undefined;
+}
+function deleteVariables(variableArray) {
+    for (var i = 0; i < variableArray.length; i++)
+        if (isVariable(variableArray[i]))
+            window[variableArray[i]] = undefined;
 }
 
 function getBottomScript() {
@@ -90,6 +105,7 @@ function clearBody() {
 function clearJS() {
     for (var i = 0; i < scripts.length; i++) {
         deleteFunction(getFunctionList(scripts[i].file.innerHTML));
+        deleteVariables(getVariableList(scripts[i].file.innerHTML));
         if (scripts[i].isTop)
             getTopScript().removeChild(scripts[i].file);
         else
