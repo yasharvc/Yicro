@@ -10,8 +10,6 @@ var TreeView = function (id) {
         return getTree();
     };
     var baseTree = new Tree(getBaseTreeNode());
-
-    var tempTree = '';
     var nodesData = [];
 
     baseTree.init();
@@ -32,7 +30,7 @@ var TreeView = function (id) {
     };
     this.clearNodes = function () {
         getTree().html('');
-        tempTree = '';
+        nodesData = [];
     };
     this.addNode = function (data) {
         var isFolder = isNull(data.isFolder) ? false : data.isFolder;
