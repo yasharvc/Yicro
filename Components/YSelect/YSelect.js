@@ -1,3 +1,5 @@
+var SelectItemClickEvent = document.createEvent('Event');
+SelectItemClickEvent.initEvent('SelectItemClicked', true, true);
 var Select = function (id, selectInput, idFieldName) {
     id = isNull(id) ? '__SELECT__' : id;
     idFieldName = isNull(idFieldName) ? 'id' : idFieldName;
@@ -45,7 +47,7 @@ var Select = function (id, selectInput, idFieldName) {
 
     var selectData = [];
 
-    var getItemId = function(row){
+    var getItemId = function (row) {
         return '_Select_' + row[idFieldName] + '_' + id;
     };
 
@@ -59,8 +61,12 @@ var Select = function (id, selectInput, idFieldName) {
 
     this.addItem = function (row) {
         //TODO: onClick
-        var template = '<li id="' + getItemId(row) + '">' + this.itemDisplayRender(row) + '</li>';
-        selectData[row[idFieldName]] = row;
+        var template = '<li onclick="this.dispatchEvent(SelectItemClickEvent);event.stopPropagation();event.preventDefault();" id="' + getItemId(row) + '" class="selectItem" aria-id="' + row[idFieldName] + '">' + this.itemDisplayRender(row) + '</li>';
+        selectData[row[idFieldName]] = {
+            data: row,
+            select: this,
+            selectId: id
+        };
         getSelect().innerHTML += template;
     };
 
@@ -74,4 +80,20 @@ var Select = function (id, selectInput, idFieldName) {
         if (!isNull(nothingFound))
             nothingFound.style.display = 'block';
     };
+
+    var clickListener = function (e) {
+        var nodeId = e.target.getAttribute('aria-id');
+        var selectId = isNull(selectData[nodeId]) ? null : selectData[nodeId].selectId;
+        if (selectId == id && !isNull(selectId)) {
+            selectData[nodeId].select.onClick(selectData[nodeId].data);
+        } else {
+            console.error('Not mine!');
+        }
+    };
+
+    this.onClick = function (data) {
+        console.log("OnClick:" + JSON.stringify(data));
+    };
+
+    addEventListener('SelectItemClicked', clickListener, false);
 };

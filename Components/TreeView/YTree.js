@@ -17,7 +17,7 @@ var TreeView = function (id) {
         var nodeId = e.target.getAttribute('aria-id');
         var treeId = nodesData[nodeId].treeId;
         if (treeId == id) {
-            nodesData[nodeId].TreeView.onClick(nodesData[nodeId]);
+            nodesData[nodeId].TreeView.onClick(nodesData[nodeId].data);
         } else {
             console.error('Not mine!');
         }
@@ -60,9 +60,7 @@ var TreeView = function (id) {
         var temp = getTree().innerHTML;
         this.clearNodes();
         getTree().innerHTML = temp;
-        data.treeId = id;
-        data.TreeView = this;
-        nodesData[nodeId] = data;
+        nodesData[nodeId] = {data:data,treeId:id,TreeView:this};
         baseTree = new Tree(getBaseTreeNode());
         baseTree.init();
         setupItemsClick();
