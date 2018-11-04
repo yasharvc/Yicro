@@ -59,3 +59,12 @@ Object.prototype.show = function(){
 Object.prototype.hide = function(){
     this.style.display = 'none';
 };
+Object.prototype.attr = function(name,value){
+    if(isNull(value))
+        return this.getAttribute(name);
+    else
+        this.setAttribute(name,value);
+};
+Object.prototype.aria = function(name,value){
+    return this.attr('aria-' + name,value);
+};

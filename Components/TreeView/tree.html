@@ -1,39 +1,39 @@
 <div id="TREE__MODAL__" class="__MODAL__">
-    <div class="__MODAL_CONTENT__ w3-white">
-        <div class="w3-container" style="width:100%;margin: 0;padding: 0;" id="treeViewModal">
-            <div id="treeViewTitle">درخت</div>
+	<div class="__MODAL_CONTENT__ w3-white">
+		<div class="w3-container" style="width:100%;margin: 0;padding: 0;" id="treeViewModal">
+			<div id="treeViewTitle">درخت</div>
 
-            <div class="w3-center w3-panel w3-light-blue w3-round w3-rightbar w3-leftbar w3-border-blue">
-                <h3 id="TreeSelectedItem"  style="text-shadow:1px 1px 0 gray;">انتخاب نشده</h3>
-            </div>
+			<div class="w3-center w3-panel w3-light-blue w3-round w3-rightbar w3-leftbar w3-border-blue">
+				<h3 id="TreeSelectedItem"  style="text-shadow:1px 1px 0 gray;">انتخاب نشده</h3>
+			</div>
 
-            <!-- <h3 style="text-align:center;color:yellow;background-color:blue;"><span ></span></h3> -->
-            <div class="w3-row">
-                <div style="text-align:center;" class="w3-bar">
-                    <button type="button" onclick="select2Select()" class="w3-bar-item w3-btn w3-green" style="width:33.3%;"><i
-                            class="fa fa-check fa-2x"></i>
-                    </button>
-                    <button type="button" onclick="closeModal('TREE__MODAL__')" class="w3-bar-item w3-btn w3-red" style="width:33.3%;"><i
-                            class="fa fa-times fa-2x"></i>
-                    </button>
-                    <button type="button" onclick="select2ClearSelection()" class="w3-bar-item w3-btn w3-blue" style="width:33.3%;"><i
-                            class="fa fa-trash fa-2x"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="w3-row">
-                <div class="TreeViewHolder">
-                    <ul role="tree" aria-labelledby="tree_label" id="__TREE__">
-                        <li></li>
-                    </ul>
-                </div>
-                <p>
-                    <label>
-                        مقدار انتخابی:
-                        <input id="last_action" type="text" size="15" readonly="">
-                    </label>
-                </p>
-            </div>
-        </div>
-    </div>
+			<!-- <h3 style="text-align:center;color:yellow;background-color:blue;"><span ></span></h3> -->
+			<div class="w3-row">
+				<div style="text-align:center;" class="w3-bar">
+					<button type="button" onclick="select2Select()" class="w3-bar-item w3-btn w3-green" style="width:33.3%;"><i
+							class="fa fa-check fa-2x"></i>
+					</button>
+					<button type="button" onclick="closeModal('TREE__MODAL__')" class="w3-bar-item w3-btn w3-red" style="width:33.3%;"><i
+							class="fa fa-times fa-2x"></i>
+					</button>
+					<button type="button" onclick="select2ClearSelection()" class="w3-bar-item w3-btn w3-blue" style="width:33.3%;"><i
+							class="fa fa-trash fa-2x"></i>
+					</button>
+				</div>
+			</div>
+			<div class="w3-row">
+				<div class="TreeViewHolder">
+					<ul role="tree" aria-labelledby="tree_label" id="__TREE__">
+						<li></li>
+					</ul>
+				</div>
+				<p>
+					<label>
+						مقدار انتخابی:
+						<input id="last_action" type="text" size="15" readonly="">
+					</label>
+				</p>
+			</div>
+		</div>
+	</div>
 </div>

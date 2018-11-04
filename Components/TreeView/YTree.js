@@ -58,9 +58,11 @@ var TreeView = function (id) {
         }
         BlockEntirePage();
         var temp = getTree().innerHTML;
+        var tempNodes = nodesData;
+        tempNodes[nodeId] = {data:data,treeId:id,TreeView:this};
         this.clearNodes();
         getTree().innerHTML = temp;
-        nodesData[nodeId] = {data:data,treeId:id,TreeView:this};
+        nodesData = tempNodes;
         baseTree = new Tree(getBaseTreeNode());
         baseTree.init();
         setupItemsClick();

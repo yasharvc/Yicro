@@ -35,6 +35,10 @@
 #__SELECT__ li a:hover:not(.header) {
     background-color: #eee;
 }
+#__SELECT__ .selected {
+    background-color: green;
+    color: white;
+}
 
 .search-board {
     height: 300px;

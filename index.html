@@ -49,7 +49,9 @@
             تست
             تستی</button>
         <button class="w3-btn w3-green" onclick="testTree();showModal('TREE__MODAL__')"><i class="fa faa-falling animated fa-window"></i>
-            Show modal</button>
+            Show tree modal</button>
+        <button class="w3-btn w3-green" onclick="testSelect();showModal('SELECT__MODAL__')"><i class="fa faa-falling animated fa-window"></i>
+            Show select modal</button>
         <p>The w3-panel class can be used to display all sorts of notes:</p>
 
         <div class="w3-panel w3-yellow">
@@ -91,8 +93,8 @@
         </div>
     </div>
     @Snackbar
-    @Modal
     @TreeView
+    @Select
     <script>
         BlockEntirePage();
         move();

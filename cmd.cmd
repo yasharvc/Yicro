@@ -13,6 +13,7 @@ LocalCSSToEnd Shared\CSS\endStyle
 LocalCSS Shared\CSS\fontawesome,Shared\CSS\w3,Shared\CSS\w3_rtl,Shared\CSS\style
 LocalCSS Shared\CSS\Snackbar
 LocalCSS Components\TreeView\treertl
+LocalCSS Components\YSelect\Select
 SharedCSS fa_animations
 
 LocalJS Shared\JS\ElementBlocker,Shared\JS\Utility,Shared\JS\Menu
@@ -23,10 +24,12 @@ LocalJS Components\TreeView\tree
 LocalJS Components\TreeView\treeitem
 //LocalJS Components\TreeView\treeitemclick
 LocalJS Components\TreeView\YTree
+LocalJS Components\YSelect\YSelect
 
 AppendLocalHTMLToRegion Index,Snackbar,Shared\HTML\Snackbar
-AppendLocalHTMLToRegion Index,Modal,Shared\HTML\Modal
-AppendLocalHTMLToRegion Index,Modal,Components\TreeView\tree
+//AppendLocalHTMLToRegion Index,Modal,Shared\HTML\Modal
+AppendLocalHTMLToRegion Index,TreeView,Components\TreeView\tree
+AppendLocalHTMLToRegion Index,Select,Components\YSelect\Select
 
 Html Index,Index
 

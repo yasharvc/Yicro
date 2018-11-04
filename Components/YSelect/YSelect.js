@@ -9,12 +9,14 @@ var Select = function (id, selectInput, idFieldName) {
     var getSelect = function () {
         return $(id);
     };
+    selectInput.aria('id', '-1');
     var targetThis = this;
     var onSelectInput = function () {
         var filter = selectInput.value.toUpperCase();
         if (handledText !== filter) {
             handledText = filter;
 
+            targetThis.clearValue();
             targetThis.onSearchStart();
 
             var li, i;
@@ -35,12 +37,23 @@ var Select = function (id, selectInput, idFieldName) {
         return true;
     };
 
+    this.clearItems = function () {
+        getSelect().innerHTML = '';
+        selectData = [];
+    };
+    this.clearInput = function () {
+        selectInput.value = '';
+    };
+
     var init = function () {
         selectInput.onchange = onSelectInput;
         selectInput.onkeydown = onSelectInput;
         selectInput.onkeypress = onSelectInput;
         selectInput.onkeyup = onSelectInput;
         selectInput.onpaste = onSelectInput;
+        selectInput.oninput = onSelectInput;
+        targetThis.clearItems();
+        targetThis.clearInput();
     };
 
     init();
@@ -50,17 +63,11 @@ var Select = function (id, selectInput, idFieldName) {
     var getItemId = function (row) {
         return '_Select_' + row[idFieldName] + '_' + id;
     };
-
-    this.clearItems = function () {
-        getSelect().innerHTML = '';
-        selectData = [];
-    };
     this.itemDisplayRender = function (row) {
         return '<a href="#">' + row.text + '</a>';
     };
 
     this.addItem = function (row) {
-        //TODO: onClick
         var template = '<li onclick="this.dispatchEvent(SelectItemClickEvent);event.stopPropagation();event.preventDefault();" id="' + getItemId(row) + '" class="selectItem" aria-id="' + row[idFieldName] + '">' + this.itemDisplayRender(row) + '</li>';
         selectData[row[idFieldName]] = {
             data: row,
@@ -76,7 +83,6 @@ var Select = function (id, selectInput, idFieldName) {
     };
 
     this.onNothingFound = function () {
-
         if (!isNull(nothingFound))
             nothingFound.style.display = 'block';
     };
@@ -84,16 +90,77 @@ var Select = function (id, selectInput, idFieldName) {
     var clickListener = function (e) {
         var nodeId = e.target.getAttribute('aria-id');
         var selectId = isNull(selectData[nodeId]) ? null : selectData[nodeId].selectId;
+        forEach(e.target.parentElement.getElementsByTagName('li'), function (li) {
+            li.removeClass('selected');
+        });
+        e.target.addClass('selected');
         if (selectId == id && !isNull(selectId)) {
             selectData[nodeId].select.onClick(selectData[nodeId].data);
-        } else {
-            console.error('Not mine!');
+            selectInput.value = selectData[nodeId].data.text;
+            $('SelectSelectedItem').html(selectData[nodeId].data.text);
+            selectData[nodeId].select.setValue(selectData[nodeId].data[idFieldName]);
         }
     };
 
     this.onClick = function (data) {
         console.log("OnClick:" + JSON.stringify(data));
     };
+    this.clearValue = function () {
+        selectInput.aria('id', '-1');
+        forEach(getSelect().getElementsByTagName('li'), function (li) {
+            li.removeClass('selected');
+            li.style.display = "";
+        });
+        $('SelectSelectedItem').html('انتخاب نشده');
+    };
+    this.setValue = function (value) {
+        selectInput.aria('id', value + "");
+    };
+    this.getValue = function () {
+        return selectInput.aria('id');
+    };
+    this.setTitle = function (title) {
+        $('selectTitle').html(title);
+    };
+
+    $('_SELECT_CLEAR').onclick = function () {
+        targetThis.clearValue();
+        targetThis.clearInput();
+    };
 
     addEventListener('SelectItemClicked', clickListener, false);
 };
+
+function testSelect() {
+    var select = new Select();
+    select.setTitle('کاربر؟');
+    select.clearItems();
+    select.addItem({
+        text: 'یاشار',
+        id: 1
+    });
+    select.addItem({
+        text: 'یاسر',
+        id: 2
+    });
+    select.addItem({
+        text: 'یاس',
+        id: 3
+    });
+    select.addItem({
+        text: 'سحر',
+        id: 4
+    });
+    select.addItem({
+        text: 'کاظم',
+        id: 5
+    });
+    select.addItem({
+        text: 'سرور',
+        id: 6
+    });
+    select.addItem({
+        text: 'سایر',
+        id: 7
+    });
+}
