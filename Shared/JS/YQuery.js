@@ -68,3 +68,6 @@ Object.prototype.attr = function(name,value){
 Object.prototype.aria = function(name,value){
     return this.attr('aria-' + name,value);
 };
+Object.prototype.data = function(name,value){
+    return this.attr('data-' + name,value);
+};

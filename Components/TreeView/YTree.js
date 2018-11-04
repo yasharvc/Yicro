@@ -56,7 +56,6 @@ var TreeView = function (id) {
             var parentNode = getNode(lastID);
             parentNode.innerHTML += node;
         }
-        BlockEntirePage();
         var temp = getTree().innerHTML;
         var tempNodes = nodesData;
         tempNodes[nodeId] = {data:data,treeId:id,TreeView:this};
@@ -66,7 +65,9 @@ var TreeView = function (id) {
         baseTree = new Tree(getBaseTreeNode());
         baseTree.init();
         setupItemsClick();
-        UnblockEntirePage();
+    };
+    this.setTitle = function (title) {
+        $('treeViewTitle').html(title);
     };
     this.onClick = function (data) {
         console.log(data);

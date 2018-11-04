@@ -25,11 +25,15 @@ LocalJS Components\TreeView\treeitem
 //LocalJS Components\TreeView\treeitemclick
 LocalJS Components\TreeView\YTree
 LocalJS Components\YSelect\YSelect
+LocalJS Shared\JS\Controls\CreateControl
+LocalJS Shared\JS\Controls\ControlFunctions
 
 AppendLocalHTMLToRegion Index,Snackbar,Shared\HTML\Snackbar
 //AppendLocalHTMLToRegion Index,Modal,Shared\HTML\Modal
 AppendLocalHTMLToRegion Index,TreeView,Components\TreeView\tree
 AppendLocalHTMLToRegion Index,Select,Components\YSelect\Select
+
+LocalJS Shared\JS\TestData
 
 Html Index,Index
 

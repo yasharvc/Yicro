@@ -103,7 +103,10 @@ var Select = function (id, selectInput, idFieldName) {
     };
 
     this.onClick = function (data) {
-        console.log("OnClick:" + JSON.stringify(data));
+        
+    };
+    this.onAccept = function (data) {
+        return true;
     };
     this.clearValue = function () {
         selectInput.aria('id', '-1');
@@ -127,6 +130,15 @@ var Select = function (id, selectInput, idFieldName) {
         targetThis.clearValue();
         targetThis.clearInput();
     };
+    $('_SELECT_SELECT').onclick = function () {
+        var isOK = targetThis.onAccept({
+            text: selectInput.value,
+            id: selectInput.aria('id')
+        });
+        isOK = isNull(isOK) ? true : isOK;
+        if (isOK)
+            closeModal('SELECT__MODAL__');
+    };
 
     addEventListener('SelectItemClicked', clickListener, false);
 };
@@ -134,7 +146,6 @@ var Select = function (id, selectInput, idFieldName) {
 function testSelect() {
     var select = new Select();
     select.setTitle('کاربر؟');
-    select.clearItems();
     select.addItem({
         text: 'یاشار',
         id: 1

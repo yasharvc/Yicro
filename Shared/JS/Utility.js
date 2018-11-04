@@ -17,6 +17,9 @@ function isNull(obj) {
 function isFunction(name) {
     return typeof window[name] === 'function';
 }
+function isString(exp){
+    return typeof exp === 'string';
+}
 function isVariable(name){
     return typeof name !== 'undefined' || name !== null;
 }
