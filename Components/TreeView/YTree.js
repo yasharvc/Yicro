@@ -11,6 +11,14 @@ var TreeView = function (id) {
     };
     var baseTree = new Tree(getBaseTreeNode());
     var nodesData = [];
+    var selectedItem ={};
+    var targetThis = this;
+    this.getSelectedItem = function(){
+        return selectedItem;
+    };
+    this.setSelectedItem = function(value){
+        selectedItem = value;
+    };
 
     baseTree.init();
     var clickListener = function (e) {
@@ -18,6 +26,8 @@ var TreeView = function (id) {
         var treeId = nodesData[nodeId].treeId;
         if (treeId == id) {
             nodesData[nodeId].TreeView.onClick(nodesData[nodeId].data);
+            nodesData[nodeId].TreeView.setSelectedItem(nodesData[nodeId].data);
+            $('TreeSelectedItem').html(nodesData[nodeId].data.text);
         } else {
             console.error('Not mine!');
         }
@@ -31,6 +41,8 @@ var TreeView = function (id) {
     this.clearNodes = function () {
         getTree().html('');
         nodesData = [];
+        this.setSelectedItem(null);
+        $('TreeSelectedItem').html('انتخاب نشده است');
     };
     this.addNode = function (data) {
         var isFolder = isNull(data.isFolder) ? false : data.isFolder;
@@ -83,7 +95,16 @@ var TreeView = function (id) {
 
         }
     };
+    this.onAccept = function(data){
+        return true;
+    };
     addEventListener('TreeItemClicked', clickListener, false);
+    $('_TREE_SELECT').onclick = function () {
+        var isOK = targetThis.onAccept(targetThis.getSelectedItem());
+        isOK = isNull(isOK) ? true : isOK;
+        if (isOK)
+            closeModal('TREE__MODAL__');
+    };
 };
 
 function testTree() {

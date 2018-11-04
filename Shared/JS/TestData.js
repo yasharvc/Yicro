@@ -75,5 +75,9 @@ function treeData(){
 }
 
 function treeValidate(data){
-    return !data.isFolder;
+    if(data.isFolder){
+        showErrorSnack('مقدار صحیح انتخاب نشده است');
+        return false;
+    }
+    return true;
 }

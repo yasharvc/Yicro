@@ -50,7 +50,27 @@ function showTree(target){
         changeProgress(i/cnt);
         i++;
     });
+
+    target.aria('selected', '-1');
+
+    tree.onAccept = function (data) {
+        if (!isNull(validateFunc)) {
+            var isValid = eval(validateFunc + '(' + JSON.stringify(data) + ')');
+            if (isValid) {
+                target.getElementsByTagName('span')[0].html(data.text);
+                target.aria('selected', data.id);
+                tree = undefined;
+            }
+            return isValid;
+        } else {
+            target.getElementsByTagName('span')[0].html(data.text);
+            target.aria('selected', data.id);
+            tree = undefined;
+            return true;
+        }
+    };
+
+    showModal('TREE__MODAL__');
     changeProgress(100);
     UnblockEntirePage();
-    showModal('TREE__MODAL__');
 }
