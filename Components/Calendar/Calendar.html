@@ -7,14 +7,40 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calendar</title>
     <script src="BaseCalculator.js"></script>
+    <script src="../../Shared/JS/Utility.js"></script>
+    <script src="../../Shared/JS/YQuery.js"></script>
     <script src="PersianCalendar.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="Calendar.css">
 </head>
 
 <body style="direction: rtl;">
     <div id="test"></div>
-    <div class="w3-container w3-center calendar">
+    <div class="w3-container calendar">
+        <div class="w3-row" style="margin: 5px;">
+            <div class="w3-bar w3-green w3-center">
+                <div class="w3-dropdown-click">
+                    <button class="w3-btn w3-red" onclick="dropDown('CALENDAR_previous')">
+                        قبل <i class="fa fa-angle-left"></i> <i class="fa fa-ellipsis-v"></i>
+                    </button>
+                    <div id="CALENDAR_previous" class="w3-dropdown-content w3-bar-block w3-card w3-right" style="margin-right: -90px;">
+                        <a href="#" class="w3-bar-item w3-button">سال قبلی</a>
+                        <a href="#" class="w3-bar-item w3-button">ماه قبلی</a>
+                    </div>
+                </div>
+                <div class="w3-dropdown-click w3-right">
+                    <button class="w3-btn w3-red" onclick="dropDown('CALENDAR_next')">
+                        <i class="fa fa-ellipsis-v"></i> <i class="fa fa-angle-right"></i> بعد 
+                    </button>
+                    <div id="CALENDAR_next" class="w3-dropdown-content w3-bar-block w3-card w3-right">
+                        <a href="#" class="w3-bar-item w3-button">سال بعدی</a>
+                        <a href="#" class="w3-bar-item w3-button">ماه بعدی</a>
+                    </div>
+                </div>
+                <span class="w3-center" style="vertical-align: -webkit-baseline-middle;" id="_CALENDAR_SELECTED_DAY_"></span>
+            </div>
+        </div>
         <div class="w3-row w3-center">
             <div class="w3-col w3-center calendar-legend" style="width:13%">
                 <p>ش</p>
@@ -38,7 +64,7 @@
                 <p>ج</p>
             </div>
         </div>
-        <div id="calendar">
+        <div id="__CALENDAR__">
 
         </div>
     </div>
@@ -69,7 +95,7 @@
             }
             for (i = 1; i <= daysInMonth; i++) {
                 var className = 'calendar-cell' + (startDay == 7 ? ' calendar-friday-cell' : '');
-                if(year === ShamsiCurrentYear && month === ShamsiCurrentMonth && ShamsiCurrentDay === i)
+                if (year === ShamsiCurrentYear && month === ShamsiCurrentMonth && ShamsiCurrentDay === i)
                     className += ' calendar-today-cell';
                 var dayHTML = template.replace(/{number}/g, i).replace(/{class}/g, className);
                 target.innerHTML += (dayHTML);
@@ -82,8 +108,8 @@
                 target.innerHTML += '</div>';
             }
         }
-        makeShamsiMonth();
-        setText();
+        var cal = new PersianCalendar();
+        cal.render();
     </script>
 </body>
 
