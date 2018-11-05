@@ -53,6 +53,8 @@
         }
 
         function makeShamsiMonth(targetName, year, month) {
+            year = year || ShamsiCurrentYear;
+            month = month || ShamsiCurrentMonth;
             targetName = (typeof targetName === 'undefined' || targetName === null) ? 'calendar' : targetName;
             var target = document.getElementById(targetName);
             target.innerHTML = '';
@@ -67,6 +69,8 @@
             }
             for (i = 1; i <= daysInMonth; i++) {
                 var className = 'calendar-cell' + (startDay == 7 ? ' calendar-friday-cell' : '');
+                if(year === ShamsiCurrentYear && month === ShamsiCurrentMonth && ShamsiCurrentDay === i)
+                    className += ' calendar-today-cell';
                 var dayHTML = template.replace(/{number}/g, i).replace(/{class}/g, className);
                 target.innerHTML += (dayHTML);
                 startDay++;
