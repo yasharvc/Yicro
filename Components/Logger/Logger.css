@@ -1,0 +1,19 @@
+.region {
+    margin: 10px;
+}
+
+.warning {
+    border: orange 3px solid;
+    border-width: 1px 1px 1px 4px;
+    margin-bottom: 4px;
+}
+
+.info {
+    border: lightblue 3px solid;
+    border-width: 1px 1px 1px 4px;
+}
+
+.error {
+    border: red 3px solid;
+    border-width: 1px 1px 1px 4px;
+}

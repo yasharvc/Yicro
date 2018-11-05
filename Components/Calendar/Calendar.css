@@ -1,0 +1,40 @@
+.calendar-empty-cell{
+    border: 1px solid transparent;
+    border-width: 1px 1px 3px 1px;
+    margin-right: 2px;
+}
+.calendar-cell{
+    border: 1px solid green;
+    border-width: 1px 1px 3px 1px;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+.calendar-friday-cell{
+    border-color: red;
+    color: yellow;
+    background: red
+}
+
+.calendar-today-cell{
+    border-color: green;
+    background: lightblue;
+    color: black;
+}
+.calendar-selected-cell{
+    border-color: magenta;
+    background: blue;
+    color: yellow;
+}
+
+.calendar{
+    border: 1px solid black;
+    padding: 2px;
+}
+.calendar-legend{
+    border-radius: 10px;
+    background: black;
+    color: white;
+    text-align: center;
+    margin-right: 2px;
+    margin-bottom: 2px;
+}

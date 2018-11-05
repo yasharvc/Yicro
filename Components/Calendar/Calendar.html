@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calendar</title>
+    <script src="BaseCalculator.js"></script>
+    <script src="PersianCalendar.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="Calendar.css">
+</head>
+
+<body style="direction: rtl;">
+    <div id="test"></div>
+    <div class="w3-container w3-center calendar">
+        <div class="w3-row w3-center">
+            <div class="w3-col w3-center calendar-legend" style="width:13%">
+                <p>ش</p>
+            </div>
+            <div class="w3-col w3-center calendar-legend" style="width:13%">
+                <p>ی</p>
+            </div>
+            <div class="w3-col w3-center calendar-legend" style="width:13%">
+                <p>د</p>
+            </div>
+            <div class="w3-col w3-center calendar-legend" style="width:13%">
+                <p>س</p>
+            </div>
+            <div class="w3-col w3-center calendar-legend" style="width:13%">
+                <p>چ</p>
+            </div>
+            <div class="w3-col w3-center calendar-legend" style="width:13%">
+                <p>پ</p>
+            </div>
+            <div class="w3-col w3-center calendar-legend calendar-friday-cell" style="width:13%">
+                <p>ج</p>
+            </div>
+        </div>
+        <div id="calendar">
+
+        </div>
+    </div>
+    <script>
+        var div = document.getElementById('test');
+
+        function setText() {
+            var text = MiladiToShamsiString();
+            text += '<br/>' + GetShamsiMonthStartDay();
+            text += '<br/>' + GetShamsiMonthFinishDay();
+            div.innerHTML = text;
+        }
+
+        function makeShamsiMonth(targetName, year, month) {
+            targetName = (typeof targetName === 'undefined' || targetName === null) ? 'calendar' : targetName;
+            var target = document.getElementById(targetName);
+            target.innerHTML = '';
+            var startDay = GetShamsiMonthStartDay(year, month);
+            var daysInMonth = GetShamsiDayInMonth(year, month);
+            var i = 0;
+            var template = '<div class="w3-col w3-center {class}" style="width:13%"><p>{number}</p></div>';
+            target.innerHTML += ('<div class="w3-row w3-center">');
+            for (i = 1; i < startDay; i++) {
+                var dayHTML = template.replace(/{number}/g, '&nbsp;').replace(/{class}/g, 'calendar-empty-cell');
+                target.innerHTML += (dayHTML);
+            }
+            for (i = 1; i <= daysInMonth; i++) {
+                var className = 'calendar-cell' + (startDay == 7 ? ' calendar-friday-cell' : '');
+                var dayHTML = template.replace(/{number}/g, i).replace(/{class}/g, className);
+                target.innerHTML += (dayHTML);
+                startDay++;
+                if (startDay > 7) {
+                    target.innerHTML += ('</div>');
+                    target.innerHTML += ('\r\n<div class="w3-row w3-center">');
+                    startDay = 1;
+                }
+                target.innerHTML += '</div>';
+            }
+        }
+        makeShamsiMonth();
+        setText();
+    </script>
+</body>
+
+</html>
