@@ -8,6 +8,7 @@
     border-width: 1px 1px 3px 1px;
     margin-right: 2px;
     margin-bottom: 2px;
+    cursor:pointer;
 }
 .calendar-friday-cell{
     border-color: red;
