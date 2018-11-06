@@ -14,6 +14,7 @@ LocalCSS Shared\CSS\fontawesome,Shared\CSS\w3,Shared\CSS\w3_rtl,Shared\CSS\style
 LocalCSS Shared\CSS\Snackbar
 LocalCSS Components\TreeView\treertl
 LocalCSS Components\YSelect\Select
+LocalCSS Components\Calendar\Calendar
 SharedCSS fa_animations
 
 LocalJS Shared\JS\ElementBlocker,Shared\JS\Utility,Shared\JS\Menu
@@ -25,6 +26,8 @@ LocalJS Components\TreeView\treeitem
 //LocalJS Components\TreeView\treeitemclick
 LocalJS Components\TreeView\YTree
 LocalJS Components\YSelect\YSelect
+LocalJS Components\Calendar\BaseCalculator
+LocalJS Components\Calendar\PersianCalendar
 LocalJS Shared\JS\Controls\CreateControl
 LocalJS Shared\JS\Controls\ControlFunctions
 
@@ -32,6 +35,7 @@ AppendLocalHTMLToRegion Index,Snackbar,Shared\HTML\Snackbar
 //AppendLocalHTMLToRegion Index,Modal,Shared\HTML\Modal
 AppendLocalHTMLToRegion Index,TreeView,Components\TreeView\tree
 AppendLocalHTMLToRegion Index,Select,Components\YSelect\Select
+AppendLocalHTMLToRegion Index,Calendar,Components\Calendar\Calendar
 
 LocalJS Shared\JS\TestData
 
