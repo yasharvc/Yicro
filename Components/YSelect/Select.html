@@ -1,35 +1,28 @@
-<div id="SELECT__MODAL__" class="__MODAL__">
-    <div class="__MODAL_CONTENT__ w3-white">
-        <div class="w3-container" style="width:100%;margin: 0;padding: 0;" id="selectModal">
-            <div id="selectTitle">انتخاب</div>
+<div class="w3-container" style="width:100%;margin: 0;padding: 0;" id="selectModal">
+    <div id="selectTitle">انتخاب</div>
 
-            <div class="w3-center w3-panel w3-light-blue w3-round w3-rightbar w3-leftbar w3-border-blue">
-                <h3 id="SelectSelectedItem" style="text-shadow:1px 1px 0 gray;">انتخاب نشده</h3>
-            </div>
-            <div class="w3-row">
-                <div style="text-align:center;" class="w3-bar">
-                    <button type="button" class="w3-bar-item w3-btn w3-green _SELECT_SELECT" style="width:33.3%;"><i
-                            class="fa fa-check fa-2x"></i>
-                    </button>
-                    <button type="button" onclick="closeModal('SELECT__MODAL__')" class="w3-bar-item w3-btn w3-red"
-                        style="width:33.3%;"><i class="fa fa-times fa-2x"></i>
-                    </button>
-                    <button type="button" class="w3-bar-item w3-btn w3-blue _SELECT_CLEAR" style="width:33.3%;"><i
-                            class="fa fa-trash fa-2x"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="w3-row">
-                <input type="text" id="__SELECT_INPUT__" placeholder="جستجو.." title="Type in a name" class="SelectInput">
-                <div class="search-board">
-                    <ul id="__SELECT__" class="w3-ul w3-card-4 w3-center w3-hoverable">
+    <div class="w3-center w3-panel w3-light-blue w3-round w3-rightbar w3-leftbar w3-border-blue">
+        <h3 id="SelectSelectedItem" style="text-shadow:1px 1px 0 gray;">انتخاب نشده</h3>
+    </div>
+    <div class="w3-row">
+        <div style="text-align:center;" class="w3-bar">
+            <button type="button" class="w3-bar-item w3-btn w3-green _SELECT_SELECT" style="width:33.3%;"><i class="fa fa-check fa-2x"></i>
+            </button>
+            <button type="button" onclick="closeModal('SELECT__MODAL__')" class="w3-bar-item w3-btn w3-red" style="width:33.3%;"><i
+                    class="fa fa-times fa-2x"></i>
+            </button>
+            <button type="button" class="w3-bar-item w3-btn w3-blue _SELECT_CLEAR" style="width:33.3%;"><i class="fa fa-trash fa-2x"></i>
+            </button>
+        </div>
+    </div>
+    <div class="w3-row">
+        <input type="text" id="__SELECT_INPUT__" placeholder="جستجو.." title="Type in a name" class="SelectInput">
+        <div class="search-board">
+            <ul id="__SELECT__" class="w3-ul w3-card-4 w3-center w3-hoverable">
 
-                    </ul>
-                    <div class="nothing-found w3-center w3-text-orange" style="display:none;" id="SELECT_NOT_FOUND"><i
-                            class="w3-text-red fa fa-warning fa-4x faa-flash animated"></i>
-                        <h3>چیزی یافت نشد</h3>
-                    </div>
-                </div>
+            </ul>
+            <div class="nothing-found w3-center w3-text-orange" style="display:none;" id="SELECT_NOT_FOUND"><i class="w3-text-red fa fa-warning fa-4x faa-flash animated"></i>
+                <h3>چیزی یافت نشد</h3>
             </div>
         </div>
     </div>

@@ -7,3 +7,16 @@ h4,
 h5 {
     font-family: 'sans'
 }
+
+.yyy {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+[part-name] {
+    display: none;
+}
+
+[template-name] {
+    display: none;
+}
