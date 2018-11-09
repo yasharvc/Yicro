@@ -16,7 +16,9 @@ function GetSharedHTML(filePath){
 function GetSharedCSS(filePath){
     return CCF('LoadSharedCSS',filePath);
 }
-
+function GetVariableValue(variable){
+    return CCF('GetVariableValue',variable);
+}
 function OnPageReady(){
     CCP('PageIsReady');
 }
